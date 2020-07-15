@@ -21,3 +21,12 @@ This repository will contain sample code to deploy the sample application on lin
 
   5. main.yml - This is the main file which will execute roles in the playbook
 
+
+# How to Run the Playbook
+
+```
+ansible-playbook main.yml -i inventories/dev/hosts - e configs/dev.yaml
+
+```
+# References
+
