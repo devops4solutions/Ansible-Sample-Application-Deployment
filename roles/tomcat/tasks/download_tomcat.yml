@@ -1,0 +1,19 @@
+- name: add group "tomcat"
+  group: name=tomcat
+
+- name: add user "tomcat"
+  user: name=tomcat group=tomcat home={{tomcat_home}} createhome=no
+  become: True
+  become_method: sudo
+
+- name: Download Tomcat
+  get_url: url={{tomcat_software_path}} dest=/opt/apache-tomcat-7.0.61.tar.gz
+
+- name: Extract archive
+  command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-7.0.61.tar.gz -C /opt/ creates=/opt/apache-tomcat-7.0.61
+
+- name: Symlink install directory
+  file: src=/opt/apache-tomcat-7.0.61 path={{tomcat_home}} state=link
+
+- name: Change ownership of Tomcat installation
+  file: path={{tomcat_home}} owner=tomcat group=tomcat state=directory recurse=yes

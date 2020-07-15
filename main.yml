@@ -7,30 +7,6 @@
 
   # Target: where our play will run and options it will run with
   hosts: all
-  remote_user: ec2-user
-  become: yes
-  become_method: sudo
-
-  # Task: the list of tasks that will be executed within the play, this section
-  # can also be used for pre and post tasks
-  tasks:
-  # - name: Make directory
-    # shell: sudo cd opt
-
-   - name: Install
-     yum:
-       name: httpd
-       state: latest
-
-   - name: Install php
-     yum:
-       name: php
-       state: latest
-   - name: start httpd service
-     service:
-       name: httpd
-       state: started
-   #  command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-8.5.30.tar.gz -C /opt/ creates=/opt/apache-tomcat-8.5.30
 
    
 
