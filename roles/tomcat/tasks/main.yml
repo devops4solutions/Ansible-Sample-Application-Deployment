@@ -29,6 +29,12 @@
 - name: Configure Tomcat users
   template: src=tomcat-users.xml dest=/usr/share/tomcat/conf/
   notify: restart tomcat
+  
+- name: cpoy sample index.html file
+  template: src=index.html.j2 dest=/opt/apache-tomcat-7.0.61/webapps/samples
+
+
+  notify: restart tomcat
 
 - name: Install Tomcat init script
   copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
