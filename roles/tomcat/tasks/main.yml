@@ -24,13 +24,20 @@
 
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
-  notify: restart tomcat
+
 
 - name: Configure Tomcat users
   template: src=tomcat-users.xml dest=/usr/share/tomcat/conf/
-  notify: restart tomcat
+
   
-- name: cpoy sample index.html file
+- name: Create  sample directory
+  file: 
+    path: "/opt/apache-tomcat-7.0.61/webapps/samples"
+    state: directory
+    mode: 0777
+  become: true
+  
+- name: copy sample index.html file
   template: src=index.html.j2 dest=/opt/apache-tomcat-7.0.61/webapps/samples/index.html
 
 
