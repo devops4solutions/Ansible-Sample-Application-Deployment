@@ -1,22 +1,8 @@
 ---
-   - name: Add a new user named devops
-     user:
-          name: devops
-          shell: /bin/bash
-          password: "{{ devops_password }}"
-          
- 
-   - name: Add devops user to the sudoers
-     copy:
-          dest: "/etc/sudoers.d/devops"
-          content: "devops  ALL=(ALL)  NOPASSWD: ALL"
  
    - name: Deploy SSH Key
-     authorized_key: user=devops
-                     key="{{ lookup('file', '~/devops_rsa.pub') }}"
+     authorized_key: user=ec2-user
+                     key="{{ lookup('file', '/home/ec2-user/.ssh/id_rsa.pub') }}"
                      state=present
-           
-     notify:
-        - restart ssh
 
 
