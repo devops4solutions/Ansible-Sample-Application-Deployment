@@ -5,7 +5,5 @@ https_port: 8443
 
 # This will configure a default manager-gui user:
 
-admin_username: admin
-admin_password: adminsecret
-
-devops_password: Xphw>97Wt
+tomcat_group: tomcat
+tomcat_user: tomcat
