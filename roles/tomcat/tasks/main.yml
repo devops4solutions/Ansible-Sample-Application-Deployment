@@ -31,7 +31,7 @@
   notify: restart tomcat
   
 - name: cpoy sample index.html file
-  template: src=index.html.j2 dest=/opt/apache-tomcat-7.0.61/webapps/samples
+  template: src=index.html.j2 dest=/opt/apache-tomcat-7.0.61/webapps/samples/index.html
 
 
   notify: restart tomcat
