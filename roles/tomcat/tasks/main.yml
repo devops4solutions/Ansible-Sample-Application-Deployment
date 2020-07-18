@@ -3,10 +3,10 @@
   yum: name=java-1.7.0-openjdk state=present
 
 - name: add group "tomcat"
-  group: name=tomcat
+  group: name={{tomcat_group}}
 
 - name: add user "tomcat"
-  user: name=tomcat group=tomcat home=/usr/share/tomcat createhome=no
+  user: name={{tomcat_user}} group={{tomcat_group}} home=/usr/share/tomcat createhome=no
   become: True
   become_method: sudo
 
