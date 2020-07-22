@@ -20,20 +20,19 @@ This repository will contain sample code to deploy the sample application on lin
 
               - tasks ( playbook to install the software)
 
-        b) java - This folder will have files related to the installation of java
+        b) add_devops_user - This folder will have files related to the setup of initial user
 
   5. main.yml - This is the main file which will execute roles in the playbook
 
 
 # How to Run the Playbook
 
-https://stackabuse.com/how-to-fix-warning-unprotected-private-key-file-on-mac-and-linux/
+
 
 ```
-ansible-playbook main.yml -i inventories/dev/hosts ---user ec2-user
---key-file /home/ec2-user/playbooks/ansible_auto.pem
+ansible-playbook main.yml -i inventories/dev/hosts --user ec2-user --key-file /home/ec2-user/playbooks/ansible_aut.pem -e '@configs/dev.yml'
 
-ansible-playbook main.yml -i inventories/dev/hosts - e configs/dev.yaml
+ansible-playbook main.yml -i inventories/dev/hosts --user devops --key-file /home/devops/.ssh/id_rsa -e '@configs/dev.yml'
 
 
 ```
