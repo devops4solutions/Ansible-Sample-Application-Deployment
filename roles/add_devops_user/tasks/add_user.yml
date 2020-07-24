@@ -11,7 +11,7 @@
  
    - name: Deploy SSH Key
      authorized_key: user=devops
-                     key="{{ lookup('file', 'devops_id_rsa.pub') }}"
+                     key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
                      state=present
                      
    - name: Disable Password Authentication
