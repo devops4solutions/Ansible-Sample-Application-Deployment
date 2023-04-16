@@ -11,4 +11,4 @@ admin_password: adminsecret
 tomcat_group: tomcat
 tomcat_user: tomcat
 
-username: jenkins
+username: devops
